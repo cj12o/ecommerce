@@ -1,0 +1,21 @@
+🛍️ Customer Navbar
+
+(Visible when a normal user is logged in)
+
+Logo / Brand Name → clickable to Home
+
+Home → product listing / landing page
+
+Categories → dropdown with all product categories
+
+Search Bar → inline in navbar
+
+Wishlist (❤️) → optional if you implement wishlist
+
+Cart (🛒) → shows cart count
+
+Orders → order history & tracking
+
+Profile / Account (👤) → dropdown: Profile, Addresses, Logout
+
+Login / Sign Up → if not logged in
