@@ -23,3 +23,4 @@ db.isDBconnected()
 
 
 
+export default db 

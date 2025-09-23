@@ -11,10 +11,11 @@
   "author": "chitransh jain",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "drizzle-orm": "^0.44.5",
     "express": "^5.1.0",
-    "mongoose": "^8.18.1",
+    "express-validator": "^7.2.1",
     "nodemon": "^3.1.10",
     "pg": "^8.16.3",
     "prettier": "^3.6.2"
