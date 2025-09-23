@@ -13,7 +13,7 @@ class Dbconn {
                 password:String(process.env.DATABASE_PASSWORD),
                 port:Number(process.env.DATABASE_PORT),
                 host:String(process.env.DATABASE_HOST),
-                connectionString:String(process.env.DATABASE_URI)
+                connectionString:String(process.env.DATABASE_URL)
             })
             this.client.connect();
             this.conn =drizzle(this.client)
