@@ -15,8 +15,23 @@ const userLoginValidator=()=>{
 }
 
 
+const userSignupValidator=()=>{
+    return [
+        body("name")
+            .notEmpty()
+            .withMessage("Name is required")
+        ,body("email")
+            .notEmpty()
+            .isEmail()
+            .withMessage("Invalid email")
+        ,body("password")
+            .notEmpty()
+            .withMessage("password is required")
+    ]
+}
 
-export {userLoginValidator}
+
+export {userLoginValidator,userSignupValidator}
 
 
 
