@@ -7,26 +7,31 @@ import bcrypt from "bcrypt"
 const loginUser=async(req,resp)=>{
     try{
         const {email,password}=req.body
-        
+
         if(!email || !password) throw new Error("Error in Authentication,Incomplete Details")
        
         const emailRegObj=await db.conn.select({email:userSchema.email}).from(userSchema).where(eq(userSchema.email,email));
-        const emailReg=emailRegObj[0]['email']
         
-        if(!emailReg) throw new Error("No such User")
+        try{
+            const emailReg=emailRegObj[0]['email']
+        }catch(e){
+            throw new Error("No such User")
+        }
+        
+        
         
         const passwordRegObj=await db.conn.select({password:userSchema.password}).from(userSchema).where(eq(userSchema.email,email))
         const passwordReg=passwordRegObj[0]['password']
 
-        const hashedPasswordReg=1
-        const saltRounds=10
+        // const hashedPasswordReg=1
+        // const saltRounds=10
         
-        bcrypt.genSalt(saltRounds, function(err, salt) {
-            bcrypt.hash(password, salt, function(err, hash) {
-                // Store hash in your password DB.
-                console.log("HASHED=>",hash)
-            });
-        });
+        // bcrypt.genSalt(saltRounds, function(err, salt) {
+        //     bcrypt.hash(password, salt, function(err, hash) {
+        //         // Store hash in your password DB.
+        //         console.log("HASHED=>",hash)
+        //     });
+        // });
         
         if(passwordReg!=password) throw new Error("Invalid credentials")
         return resp
@@ -39,8 +44,11 @@ const loginUser=async(req,resp)=>{
     catch(e){
         const error_lst=[]
         error_lst.push(e.message)
-        console.log(`❌❌ERROR=>${e.message}`)
-        throw new Apierror(409,"error in login",error_lst)
+        // console.log(`❌❌ERROR=>${e.message}`)
+        // throw new Apierror(409,"error in login",error_lst)
+        return resp
+            .status(409)
+            .json(new Apierror(409,e.message,error_lst))
     }
 }
 

@@ -4,7 +4,7 @@ class Apierror extends Error{
         super(message)
         this.statusCode=statusCode
         this.message=message
-        this.errorse=errors
+        this.errors=errors
         if(stack){
             this.stack=stack
         }else{
