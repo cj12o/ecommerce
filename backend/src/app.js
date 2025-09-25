@@ -1,7 +1,7 @@
 import express, { urlencoded } from "express"
 import authrouter from "./routes/auth.route.js"
 import cors from "cors"
-
+import cookieparser from "cookie-parser"
 const app=express()
 
 app.use(express.json({limit:"16kb"}))
@@ -13,7 +13,7 @@ app.use(cors({
     methods:["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
     allowedHeaders:["Content-Type","Authorization"]
 }))
-
+app.use(cookieparser())
 
 
 app.get('/',(req,resp)=>{

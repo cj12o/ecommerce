@@ -1,0 +1,6 @@
+{withCredentials:true})
+
+in axios to alllow cookies
+
+cookies
+1)create store

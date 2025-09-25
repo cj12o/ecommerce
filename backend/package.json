@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "drizzle-orm": "^0.44.5",
@@ -19,7 +20,8 @@
     "express-validator": "^7.2.1",
     "nodemon": "^3.1.10",
     "pg": "^8.16.3",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/pg": "^8.15.5",

@@ -6,15 +6,17 @@ import { Provider } from 'react-redux'
 import store from "./store/store.js"
 
 
-
 import Cart from './pages/Cart.jsx'
 import Login from './pages/Login.jsx'
-
+import Signup from './pages/Signup.jsx'
+import Home from './pages/Home.jsx'
 
 const router=createBrowserRouter([
   {path:"/",element:<App/>,children:[
+    {path:"/",element:<Home/>},
     {path:"/cart",element:<Cart/>},
-    {path:"/login",element:<Login/>}
+    {path:"/login",element:<Login/>},
+    {path:"/signup",element:<Signup/>}
   ]
   }
 ])

@@ -2,3 +2,8 @@ generatedAlwaysAsIdentity()
  automatically generates its value, typically for primary keys or unique identifiers. 
  This is equivalent to the GENERATED ALWAYS AS IDENTITY feature in SQL, 
  commonly used in PostgreSQL.
+
+
+
+ auth
+ uuid

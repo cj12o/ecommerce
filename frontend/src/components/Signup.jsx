@@ -1,28 +1,28 @@
 import React, { useState ,useCallback,useEffect} from 'react'
 import Button from "./Button.jsx"
 import {useNavigate} from "react-router-dom"
-import { useSelector ,useDispatch} from 'react-redux';
-import { login as loginBackend } from '../backend/auth.js';
-import { login as reducerLogin,logout as reducerLogout } from '../store/authSlice.js';
+import {signup as signupBackend } from '../backend/auth.js';
+
  
-function Login() {
+function Signup() {
   const [email,setEmail]=useState("")
+  const [name,setName]=useState("")
   const [password,setPassword]=useState("")
 
   const [error,setError]=useState("")
+  
 
-  const dispatch=useDispatch()
   const navigate=useNavigate()
-
-  const authStatus=useSelector((state)=>state.authStatus)
   // const authStatus=useSelector((state)=>state.authStatus)
   const submitHandler=async()=>{
     setError("")
     try{
-      const resp=await loginBackend(email,password,dispatch)
+      const resp=await signupBackend(name,email,password)
+      alert("signed up succesfully")
+      navigate("/login")
     }
     catch(e){
-      console.log(`Error=>${e.message}`)
+      console.log("Error component",e)
       setError(e.message)
     }
   }
@@ -37,6 +37,11 @@ function Login() {
           submitHandler()
         }}>
             <div className='flex flex-col'>
+                <label htmlFor="">Name:</label>
+                <input type="text" placeholder="Enter your name" className='bg-white p-1 rounded w-full mx-auto my-3.5'
+                value={name}
+                onChange={(e)=>setName(e.target.value)}
+                required/>
                 <label htmlFor="">Email:</label>
                 <input type="email" placeholder='Enter email id' className='bg-white p-1 rounded w-full mx-auto my-3.5'
                 value={email}
@@ -47,7 +52,7 @@ function Login() {
                  value={password}
                  onChange={(e)=>setPassword(e.target.value)}
                  required/>
-                <Button className='m-2' type='submit'>Login</Button>
+                <Button className='m-2' type='submit'>Sign Up</Button>
             </div>
         </form>
       </div>
@@ -55,4 +60,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Signup

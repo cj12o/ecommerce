@@ -17,4 +17,5 @@ const validate=(req,resp,next)=>{
     throw new Apierror(422,"Recieved data is invalid",errorArray)
 }
 
+//midleware 
 export {validate}
